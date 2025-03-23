@@ -1,0 +1,199 @@
+@import "@nikitababko/reset-css";
+
+:root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    --bg-page: #E9F4FE;
+    --color-primary: #2196f3;
+    --color-dark: #2E3D54;
+    --radius-btn: 10px;
+    --transition: 0.3s ease-in-out;
+}
+
+/* Layout — App & Container */
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px 20px;
+    background: var(--bg-page);
+
+    @media screen and (min-width: 768px) {
+        justify-content: center;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#idValue {
+    word-break: break-all;
+}
+
+/* Buttons — Generate & Copy */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+#generate-button-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#generate-button-container img {
+    transition: transform var(--transition);
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+#copy-button-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.copy-button-inner {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform var(--transition);
+    min-width: 34px;
+    height: 37px;
+}
+
+#copy-button-container .copy-button-inner.copy-button-container-animation {
+    animation: copy-animation 2s ease-in-out;
+}
+
+@keyframes copy-animation {
+    0% {
+        transform: translate(-50%, 0);
+    }
+
+    10% {
+        transform: translate(-50%, -140%);
+    }
+
+    90% {
+        transform: translate(-50%, -140%);
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--radius-btn);
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-dark);
+}
+
+/* Controls — Segmented & Select */
+.control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.segmented-control {
+    display: inline-flex;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-btn);
+    overflow: hidden;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+.segmented-control input[type="radio"] {
+    display: none;
+}
+
+.segmented-control label {
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+    text-align: center;
+    flex: 1 1 auto;
+    color: var(--color-primary);
+    background: #fff;
+    transition: background var(--transition), color var(--transition);
+    border-right: 1px solid var(--color-primary);
+}
+
+.segmented-control label:last-of-type {
+    border-right: none;
+}
+
+.segmented-control label:hover {
+    background: rgba(33, 150, 243, 0.1);
+}
+
+.segmented-control input[type="radio"]:checked + label {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.length-select-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 40px;
+    height: 40px;
+}
+
+.select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.select select {
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    background-color: var(--color-dark);
+    color: #fff;
+    padding: 11px;
+    border: none;
+    border-radius: var(--radius-btn);
+    cursor: pointer;
+    transition: filter var(--transition), border-color var(--transition);
+}
+
+.control-item:hover {
+    filter: brightness(90%);
+}
+
+.select select:focus {
+    border-color: #5AB0FF;
+}
+
+/* Common */
+.hidden {
+    display: none;
+}

@@ -1,13 +1,28 @@
 {
   "name": "id-generator-app",
-  "private": true,
-  "version": "0.0.0",
+  "author": "Nikita Babko <niki.babko@gmail.com>",
+  "private": false,
+  "homepage": "https://github.com/nikitababko/id-generator-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikitababko/id-generator-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikitababko/id-generator-app/issues"
+  },
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prepare": "husky"
+  },
+  "dependencies": {
+    "@nikitababko/id-generator": "2.0.0",
+    "@nikitababko/reset-css": "1.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "19.7.1",
